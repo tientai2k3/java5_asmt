@@ -42,4 +42,9 @@ public class NsxService implements INsxService{
     public List<NSX> getAll() {
         return repository.getAll();
     }
+
+    @Override
+    public NSX findNSXByMa(String ma) {
+        return repository.findNSXByMaContains(ma);
+    }
 }

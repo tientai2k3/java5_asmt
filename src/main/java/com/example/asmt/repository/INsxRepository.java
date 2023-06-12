@@ -11,6 +11,7 @@ import java.util.List;
 public interface INsxRepository extends JpaRepository<NSX,Integer> {
     Page<NSX> findAll(Pageable pageable);
     NSX findNSXById(int id);
+    NSX findNSXByMaContains(String ma);
 
     @Query("SELECT nsx FROM NSX  nsx")
     List<NSX> getAll();

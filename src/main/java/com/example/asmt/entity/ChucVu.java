@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,4 +26,7 @@ public class ChucVu {
 
     @Column(name = "ten")
     private String ten;
+
+    @OneToMany(mappedBy = "chucVu", cascade = CascadeType.ALL)
+    private List<Account> accountList;
 }

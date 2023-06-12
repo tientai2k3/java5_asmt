@@ -42,4 +42,9 @@ public class LoaiSPService implements ILoaiSPService {
     public List<LoaiSP> getAll() {
         return repository.getAll();
     }
+
+    @Override
+    public LoaiSP findAllByMaContains(String ma) {
+        return repository.findAllByMaContains(ma);
+    }
 }

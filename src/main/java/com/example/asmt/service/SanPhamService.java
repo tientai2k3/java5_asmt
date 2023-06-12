@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class SanPhamService implements ISanPhamService{
@@ -48,5 +49,15 @@ public class SanPhamService implements ISanPhamService{
     @Override
     public Page<SanPham> findByTenContains(String keyword,Pageable pageable) {
         return repository.findByTenContains(keyword,pageable);
+    }
+
+    @Override
+    public List<SanPham> getAll() {
+        return repository.getAll();
+    }
+
+    @Override
+    public SanPham findSanPhamByMaContains(String ma) {
+        return repository.findSanPhamByMaContains(ma);
     }
 }

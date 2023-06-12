@@ -18,8 +18,11 @@
     <h4><center>DANH SÁCH ĐỒNG HỒ</center></h4>
     <hr>
     <div style="margin-bottom: 20px">
-        <a href="/dong-ho/create"class="btn btn-outline-danger">Thêm mới</a>
+        <a href="/admin/dong-ho/create"class="btn btn-outline-danger">Thêm mới</a>
     </div>
+    <div style="margin-bottom: 20px">
+    <a href="/admin/dong-ho/export-excel"class="btn btn-outline-danger">Xuất file</a>
+</div>
     <form>
         <div>
             <input type="text" class="form-control" placeholder="Tìm kiếm theo tên" name="tenSanPham" value="${param.tenSanPham}" >
@@ -47,6 +50,8 @@
         <table class="table">
             <thead>
             <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Hình ảnh</th>
                 <th scope="col">Mã Sản Phẩm</th>
                 <th scope="col">Tên Sản Phẩm</th>
                 <th scope="col">Loại Sản Phẩm</th>
@@ -61,8 +66,12 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${ds.getContent()}" var="sp">
+            <c:forEach items="${ds.getContent()}" var="sp" varStatus="a">
                 <tr>
+                    <th scope="row">${a.index+1}</th>
+                    <td>
+                        <img src="../../../img/${sp.image}" width="100" height="90">
+                    </td>
                     <th scope="row">${sp.ma}</th>
                     <td>${sp.ten}</td>
                     <td>${sp.loaiSP.ten}</td>
@@ -73,8 +82,8 @@
                     <td>${sp.moTa}</td>
                     <td>${sp.soLuongTon}</td>
                     <td>${sp.donGia}</td>
-                    <td><a class="btn btn-info" onclick="return confirm('Bạn có muốn xem chi tiết ?')" href="/dong-ho/detail/${sp.id}">Detail</a></td>
-                    <td><a class="btn btn-info"  onclick="return confirm('Bạn chắc chắn xóa chứ ?')" href="/dong-ho/delete/${sp.id}">Delete</a></td>
+                    <td><a class="btn btn-info" onclick="return confirm('Bạn có muốn xem chi tiết ?')" href="/admin/dong-ho/detail/${sp.id}">Detail</a></td>
+                    <td><a class="btn btn-info"  onclick="return confirm('Bạn chắc chắn xóa chứ ?')" href="/admin/dong-ho/delete/${sp.id}">Delete</a></td>
                 </tr>
             </c:forEach>
             </tbody>

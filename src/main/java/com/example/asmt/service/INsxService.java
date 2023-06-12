@@ -13,4 +13,5 @@ public interface INsxService {
     void deleteNSX(int id);
     NSX findNSXById(int id);
     List<NSX> getAll();
+    NSX findNSXByMa(String ma);
 }

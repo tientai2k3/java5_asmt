@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.validation.BindingResult;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public interface ISanPhamService {
     Page<SanPham> findAll(Pageable pageable);
@@ -16,4 +17,6 @@ public interface ISanPhamService {
     SanPham findSanPhamById(int id);
     Page<SanPham> findByTenContainsAndDonGiaBetween(String ten, BigDecimal min, BigDecimal max, Pageable pageable);
     Page<SanPham> findByTenContains(String keyword,Pageable pageable);
+    List<SanPham> getAll();
+    SanPham findSanPhamByMaContains(String ma);
 }

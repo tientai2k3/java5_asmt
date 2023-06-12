@@ -13,4 +13,5 @@ public interface ILoaiSPService {
     void deleteLoaiSP(int id);
     LoaiSP findLoaiSPById(int id);
     List<LoaiSP> getAll();
+    LoaiSP findAllByMaContains(String ma);
 }

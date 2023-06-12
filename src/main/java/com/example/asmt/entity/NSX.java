@@ -1,6 +1,7 @@
 package com.example.asmt.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,9 +22,11 @@ public class NSX {
     @Column(name = "id")
     private int id;
 
+    @NotBlank(message = "Mã không được để trống")
     @Column(name = "ma")
     private String ma;
 
+    @NotBlank(message = "Tên không được để trống")
     @Column(name = "ten")
     private String ten;
 

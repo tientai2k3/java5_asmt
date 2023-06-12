@@ -12,6 +12,7 @@ public interface ILoaiSPRepository extends JpaRepository<LoaiSP,Integer> {
     LoaiSP findLoaiSPById(int id);
     Page<LoaiSP> findAll(Pageable pageable);
 
+    LoaiSP findAllByMaContains(String ma);
     @Query("SELECT lsp FROM LoaiSP lsp")
     List<LoaiSP> getAll();
 }

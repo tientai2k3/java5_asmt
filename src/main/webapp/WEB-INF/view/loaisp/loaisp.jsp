@@ -18,23 +18,26 @@
     <h1>
         <center>QUẢN LÝ LOẠI SẢN PHẨM</center>
     </h1>
-    <form action="/loaisp/add" method="post">
+    <form:form action="/admin/loaisp/add" method="post"
+    modelAttribute="data">
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Mã</label>
             <div class="col-sm-10">
-                <input class="form-control" name="ma">
+                <form:input path="ma" class="form-control"/>
+                <form:errors  path="ma" />
             </div>
         </div>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Tên</label>
             <div class="col-sm-10">
-                <input class="form-control" name="ten">
+                <form:input path="ten" class="form-control"/>
+                <form:errors path="ten" />
             </div>
         </div>
         <div>
             <button type="submit" class="btn btn-success">Add</button>
         </div>
-    </form>
+    </form:form>
     <br>
     <c:if test="${ds.isEmpty()}">
         <h3>Không có dữ liệu</h3>
@@ -44,18 +47,20 @@
     <table class="table">
         <thead>
         <tr>
+            <th scope="col">STT</th>
             <th scope="col">Mã</th>
             <th scope="col">Tên</th>
             <th scope="col" colspan="2">Hành động</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${ds.getContent()}" var="ms">
+        <c:forEach items="${ds.getContent()}" var="ms" varStatus="a">
             <tr>
-                <th scope="row">${ms.ma}</th>
+                <th scope="row">${a.index+1}</th>
+                <th>${ms.ma}</th>
                 <td>${ms.ten}</td>
-                <td><a class="btn btn-info" href="/loaisp/detail/${ms.id}">Detail</a></td>
-                <td><a class="btn btn-info" href="/loaisp/delete/${ms.id}">Delete</a></td>
+                <td><a class="btn btn-info" href="/admin/loaisp/detail/${ms.id}">Edit</a></td>
+                <td><a class="btn btn-info" href="/admin/loaisp/delete/${ms.id}">Delete</a></td>
             </tr>
         </c:forEach>
         </tbody>
